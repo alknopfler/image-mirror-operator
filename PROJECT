@@ -1,0 +1,8 @@
+domain: alklabs.com
+layout: go.kubebuilder.io/v3
+plugins:
+  manifests.sdk.operatorframework.io/v2: {}
+  scorecard.sdk.operatorframework.io/v2: {}
+projectName: image-mirror-operator
+repo: github.com/alknopfler/image-mirror-operator
+version: "3"
