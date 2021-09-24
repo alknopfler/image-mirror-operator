@@ -5,4 +5,23 @@ plugins:
   scorecard.sdk.operatorframework.io/v2: {}
 projectName: image-mirror-operator
 repo: github.com/alknopfler/image-mirror-operator
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: alklabs.com
+  group: mirror
+  kind: Mirrored
+  path: github.com/alknopfler/image-mirror-operator/api/v1alpha1
+  version: v1alpha1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: alklabs.com
+  group: mirror
+  kind: Registry
+  path: github.com/alknopfler/image-mirror-operator/api/v1alpha1
+  version: v1alpha1
 version: "3"

@@ -1,0 +1,24 @@
+# permissions for end users to edit mirroreds.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: mirrored-editor-role
+rules:
+- apiGroups:
+  - mirror.alklabs.com
+  resources:
+  - mirroreds
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - mirror.alklabs.com
+  resources:
+  - mirroreds/status
+  verbs:
+  - get

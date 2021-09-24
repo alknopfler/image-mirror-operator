@@ -1,0 +1,7 @@
+apiVersion: mirror.alklabs.com/v1alpha1
+kind: Registry
+metadata:
+  name: registry-sample
+spec:
+  # Add fields here
+  foo: bar
