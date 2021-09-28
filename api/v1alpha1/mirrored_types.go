@@ -29,7 +29,22 @@ type MirroredSpec struct {
 	// Important: Run "make" to regenerate code after modifying this file
 
 	// Foo is an example field of Mirrored. Edit mirrored_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	Ocp            Ocp         `yaml:"ocp"`
+	Operators      []Operators `yaml:"operators"`
+	TargetRegistry []string    `yaml:"samples"`
+}
+type Ocp struct {
+	Versions []string `yaml:"versions"`
+	Graph    bool     `yaml:"graph"`
+}
+type Packages struct {
+	Name    string `yaml:"name"`
+	Version string `yaml:"version,omitempty"`
+	Channel string `yaml:"channel,omitempty"`
+}
+type Operators struct {
+	Catalog  string     `yaml:"catalog"`
+	Packages []Packages `yaml:"packages,omitempty"`
 }
 
 // MirroredStatus defines the observed state of Mirrored
