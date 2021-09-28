@@ -25,29 +25,33 @@ import (
 
 // MirroredSpec defines the desired state of Mirrored
 type MirroredSpec struct {
-	Ocp            Ocp         `yaml:"ocp"`
-	Operators      []Operators `yaml:"operators"`
-	TargetRegistry []string    `yaml:"targetRegistry"`
+	Ocp            Ocp         `json:"ocp"`
+	Operators      []Operators `json:"operators"`
+	TargetRegistry []string    `json:"targetRegistry"`
 }
+
+// Ocp struct defines the ocp version and channel to be mirrored
 type Ocp struct {
-	Channel []string `yaml:"versions"`
-	Version []string `yaml:"tag"`
-	Graph   bool     `yaml:"graph"`
+	Channel []string `json:"versions"`
+	Version []string `json:"tag"`
 }
+
+// Operator struct defines the packages and the catalag to be mirrored from
 type Operators struct {
-	Catalog  string     `yaml:"catalog"`
-	Packages []Packages `yaml:"packages,omitempty"`
+	Catalog  string     `json:"catalog"`
+	Packages []Packages `json:"pacakges,omitempty"`
 }
 type Packages struct {
-	Name    string `yaml:"name"`
-	Version string `yaml:"version,omitempty"`
-	Channel string `yaml:"channel,omitempty"`
+	Name    string `json:"name"`
+	Version string `json:"version,omitempty"`
+	Channel string `json:"channel,omitempty"`
 }
 
 // MirroredStatus defines the observed state of Mirrored
 type MirroredStatus struct {
-	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
+	Ready       bool `json:"ready"`
+	Initialized bool `json:"initialized"`
+	Waiting     bool `json:"waiting"`
 }
 
 //+kubebuilder:object:root=true
