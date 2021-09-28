@@ -17,6 +17,7 @@ limitations under the License.
 package v1alpha1
 
 import (
+	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -25,9 +26,11 @@ import (
 
 // MirroredSpec defines the desired state of Mirrored
 type MirroredSpec struct {
-	Ocp            Ocp         `json:"ocp"`
-	Operators      []Operators `json:"operators"`
-	TargetRegistry []string    `json:"targetRegistry"`
+	Ocp                   Ocp                          `json:"ocp"`
+	Operators             []Operators                  `json:"operators"`
+	TargetRegistry        []string                     `json:"targetRegistry"`
+	TargetDestinationPath []string                     `json:"targetDestinationPath"`
+	PullSecretRef         *corev1.LocalObjectReference `json:"pullSecretRef"`
 }
 
 // Ocp struct defines the ocp version and channel to be mirrored
