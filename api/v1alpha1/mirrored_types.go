@@ -52,6 +52,7 @@ type MirroredStatus struct {
 	Ready       bool `json:"ready"`
 	Initialized bool `json:"initialized"`
 	Waiting     bool `json:"waiting"`
+	Failed      bool `json:"failed"`
 }
 
 //+kubebuilder:object:root=true
