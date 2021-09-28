@@ -25,26 +25,23 @@ import (
 
 // MirroredSpec defines the desired state of Mirrored
 type MirroredSpec struct {
-	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
-
-	// Foo is an example field of Mirrored. Edit mirrored_types.go to remove/update
 	Ocp            Ocp         `yaml:"ocp"`
 	Operators      []Operators `yaml:"operators"`
-	TargetRegistry []string    `yaml:"samples"`
+	TargetRegistry []string    `yaml:"targetRegistry"`
 }
 type Ocp struct {
-	Versions []string `yaml:"versions"`
-	Graph    bool     `yaml:"graph"`
+	Channel []string `yaml:"versions"`
+	Version []string `yaml:"tag"`
+	Graph   bool     `yaml:"graph"`
+}
+type Operators struct {
+	Catalog  string     `yaml:"catalog"`
+	Packages []Packages `yaml:"packages,omitempty"`
 }
 type Packages struct {
 	Name    string `yaml:"name"`
 	Version string `yaml:"version,omitempty"`
 	Channel string `yaml:"channel,omitempty"`
-}
-type Operators struct {
-	Catalog  string     `yaml:"catalog"`
-	Packages []Packages `yaml:"packages,omitempty"`
 }
 
 // MirroredStatus defines the observed state of Mirrored
